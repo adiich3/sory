@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Un mesaj pentru tine</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+background:#ffd6e7;
+margin-top:120px;
+overflow:hidden;
+}
+
+h1{
+font-size:45px;
+}
+
+button{
+padding:16px 35px;
+font-size:22px;
+margin:20px;
+cursor:pointer;
+border:none;
+border-radius:12px;
+}
+
+#yes{
+background:#4CAF50;
+color:white;
+}
+
+#no{
+background:#ff4d6d;
+color:white;
+position:absolute;
+}
+
+#mesaj{
+font-size:35px;
+margin-top:40px;
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh)}
+100%{transform:translateY(110vh)}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Ma ierti? 🥺</h1>
+
+<button id="yes" onclick="raspuns()">Da</button>
+<button id="no">Nu</button>
+
+<h2 id="mesaj"></h2>
+
+<script>
+
+const noButton = document.getElementById("no");
+
+noButton.addEventListener("mouseover", function(){
+
+const x = Math.random() * (window.innerWidth - 100);
+const y = Math.random() * (window.innerHeight - 50);
+
+noButton.style.left = x + "px";
+noButton.style.top = y + "px";
+
+});
+
+function raspuns(){
+
+document.getElementById("mesaj").innerHTML =
+"Yay 🎉<br><br>Multumesc ca m ai iertat ❤️<br><br>Promit sa fiu mai cuminte.";
+
+confetti();
+}
+
+function confetti(){
+
+for(let i=0;i<30;i++){
+
+let heart=document.createElement("div");
+heart.innerHTML="❤️";
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(heart);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
